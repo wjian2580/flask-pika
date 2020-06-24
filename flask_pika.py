@@ -264,6 +264,9 @@ class ProxyContextManager(object):
         except AttributeError:
             return getattr(self.instance, key)
 
+    def __hash__(self):
+        return hash(self.instance)
+
     def __enter__(self):
         return self.instance
 
